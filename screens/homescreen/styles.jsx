@@ -1,9 +1,20 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    
     container:{
-       flex:1,
+        flex:1,
+        marginTop:20,
+     },
 
+    page: {
+        paddingHorizontal: 20,
+        flex: 1
+      },
+
+    textTest:{
+        color:'gray',
+        fontWeight:'800'
     },
 
     subcontainer1:{
@@ -11,19 +22,9 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
     },
-    subcontainer2:{
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop:'4%'
-    },
     subcontainer3:{
         justifyContent:'center',
         alignItems:'center',
-    },
-    subcontainer4:{
-        
-        marginHorizontal:20,
-        width:'90%',
     }
 })
 

@@ -1,42 +1,33 @@
-import React from 'react'
-import {View, FlatList} from 'react-native'
-import Product from './product/product'
+import React from "react";
+import {View, Text, TouchableOpacity} from 'react-native'
+import ProductImage from './productImage/ProductImage'
+import styles from './styles'
 
-
-const products=[{
-    id:'1',
-    productName:'Biometría Hemática',
-    tiempoResultado:30,
-    price:1300,
-    image:'http://rutalab.com/imagenes/productos/Biometria_hematica.jpg'
-  },
-  {
-    id:'2',
-    productName:'Prueba de embarazo',
-    tiempoResultado:120,
-    price:300,
-    image:'http://rutalab.com/imagenes/productos/prueba_embarazo.jpg'
-  },
-  {
-    id:'3',
-    productName:'Prueba de COVID',
-    tiempoResultado:15,
-    price:1500,
-    image:'http://rutalab.com/imagenes/productos/covid_test.jpg'
-  }
-  ]
-
-const Products = () =>{
+const Product = ({item}) => {
     
+   const onPressLearnMore = ()=>{
+        return(
+            console.warn("agregar")
+    )}
 
     return(
-        <View>
-            <FlatList
-            data={products}
-            renderItem={({item})=> <Product products={item}/>}
-            keyExtractor={item => item.id}/>
+        <View style={styles.container}>
+            <View style={styles.subcontainer1}>
+                <ProductImage image={item.image}/>
+            </View>
+            <View style={styles.subcontainer2}>
+                <Text style={styles.text1}>{item.title}</Text>
+                <Text style={styles.text2}>Tiempo de resultado {item.tiempoResultado} min</Text>
+                <Text>${item.precio}</Text>
+                <TouchableOpacity
+                onPress={onPressLearnMore}
+                style={styles.button}>
+                    <Text style={styles.textButton}>Agregar
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
 
-export default Products
+export default Product

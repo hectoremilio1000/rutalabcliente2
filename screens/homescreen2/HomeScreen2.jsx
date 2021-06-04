@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native'
 import SearchBarComponent from '../../components/searchbar/SearchBar'
-import Banner from '../../components/banner/Banner'
+import Banner from '../../components/Banner/Banner'
 import styles from './styles'
-import Products from '../../components/products/Products'
+import Products from '../../components/Products/Products'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';

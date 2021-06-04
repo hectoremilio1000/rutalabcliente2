@@ -1,7 +1,7 @@
 const products = [
     {
         id:'1',
-        productName:'Prueba COVID',
+        title:'Prueba COVID',
         image:"https://imagenesrutalab.s3.amazonaws.com/images/covid/pruebaCovid.jpg",
         precio:1300,
         oldPrice:1600,
@@ -10,7 +10,7 @@ const products = [
     },
     {
         id:'2',
-        productName:'Biometría Hemática',
+        title:'Biometría Hemática',
         image:'https://imagenesrutalab.s3.amazonaws.com/images/biometria/biometriaHematica.jpg',
         precio:250,
         oldPrice:350,
@@ -19,7 +19,7 @@ const products = [
     },
     {
         id:'3',
-        productName:'Prueba de Embarazo',
+        title:'Prueba de Embarazo',
         image:'https://imagenesrutalab.s3.amazonaws.com/images/pregnant/embarazoPrueba.jpg',
         precio:120,
         oldPrice:200,
@@ -28,7 +28,7 @@ const products = [
     },
     {
         id:'4',
-        productName:'Química Sanguínea',
+        title:'Química Sanguínea',
         image:'https://imagenesrutalab.s3.amazonaws.com/images/citometria/ciometriaHematica.jpg',
         precio:350,
         oldPrice:450,
@@ -37,7 +37,7 @@ const products = [
     },
     {
         id:'5',
-        productName:'Química Sanguínea + Colesterol y trigliceridos',
+        title:'Química Sanguínea + Colesterol y trigliceridos',
         image:'https://imagenesrutalab.s3.amazonaws.com/images/citometria_colesterol_trigliceridos/citometriaColesterol.jpg',
         precio:400,
         oldPrice:550,
@@ -46,7 +46,7 @@ const products = [
     },
     {
         id:'6',
-        productName:'Prueba de Orina',
+        title:'Prueba de Orina',
         image:'https://imagenesrutalab.s3.amazonaws.com/images/orina/orinaPrueba.jpg',
         precio:100,
         oldPrice:200,

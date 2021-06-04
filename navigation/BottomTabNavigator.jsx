@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/homescreen/HomeScreen'
 import HomeScreen2 from '../screens/homescreen2/HomeScreen2'
+import ProductScreen from '../screens/ProductScreen/ProductScreen'
 import ShoppingScreen from '../screens/shoppingscreen/ShoppingScreen'
 import OrdenesScreen from '../screens/ordenesScreen/OrdenesScreen'
 import HelpScreen from '../screens/helpScreen/HelpScreen';
@@ -39,7 +40,7 @@ export default function BottomTabNavigator() {
       />
       <Tab.Screen
         name="Compras"
-        component={ShoppingScreen}
+        component={ProductScreen}
         options={{
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shopping-outline" size={30} color={color} />
         }}
