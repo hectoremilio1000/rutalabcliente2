@@ -11,7 +11,7 @@ import ProductScreen from '../screens/ProductScreen/ProductScreen'
 import ShoppingScreen from '../screens/shoppingscreen/ShoppingScreen'
 import OrdenesScreen from '../screens/ordenesScreen/OrdenesScreen'
 import HelpScreen from '../screens/helpScreen/HelpScreen';
-import ProfileScreen from '../screens/profileScreen/ProfileScreen';
+import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import DestinationSearchScreen from '../screens/destinationScreen/DestinationScreen'
 
 const Tab = createBottomTabNavigator();
