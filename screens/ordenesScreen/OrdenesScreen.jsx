@@ -1,64 +1,67 @@
 import React from 'react'
-import {Text, View, TouchableOpacity, SafeAreaView, Image} from 'react-native'
-import { AntDesign } from '@expo/vector-icons';
+import {Text, View, TouchableOpacity, SafeAreaView} from 'react-native'
+import Button from '../../components/Button/Button'
+import { useNavigation } from '@react-navigation/native'
 
-
-import Colors from '../../constants/Colors'
 import styles from './styles'
-import order from '../../assets/data/order'
+import CartServiceItem from '../../components/CartServiceItem/CartServiceItem';
+import { FlatList } from 'react-native-gesture-handler';
+
+import orders from '../../assets/data/order'
 
 const OrdenesScreen = ()=>{
+const navigation = useNavigation();
 
-    const onPressLista = ()=>{
-        console.warn('lista de ordenes')
+    const totalPrice = orders.reduce(
+        (summedPrice, order) =>
+          summedPrice + order.item.precio * order.cantidad,
+        0,
+      );
+
+    const onCheckout= ()=>{
+        navigation.navigate('CreandoOrden')
     }
 
-    const onPressResultados= ()=>{
-        console.warn('ver resultados')
-    }
-
-    const onPressLogOut= ()=>{
-        console.warn('cancelar')
-    }
     return(
-        <SafeAreaView style={styles.container}>
-            <View style={styles.subcontainer1}>
-                <Text style={styles.textpropina}>Órdenes anteriores</Text>
-                <TouchableOpacity onPress={onPressLista}>
-                    <View style={styles.sucontainer1_1}>
-                        <AntDesign name="right" size={14} color={Colors.dark.tint}/>
-                    </View>
-                </TouchableOpacity>
-            </View>
+        <View style={styles.page}>
+            <FlatList
+                data={orders}
+                renderItem={({item})=><CartServiceItem cartItem={item}/>}
+                showsVerticalScrollIndicator={false}
+                ListHeaderComponent={
+                    ()=>(
+                    <View style={styles.container}>
+                        <View style={styles.subcontainer2}>
+                            <View>
+                                <Text style={styles.textcurso}>Orden en curso</Text>
+                                <Text style={styles.textcurso1}>Estudios solicitados</Text>
+                                <View style={styles.subcontainer3}> 
+                                    <Text style={{fontSize: 18}}>
+                                    Subtotal ({orders.length} servicios):{' '}
+                                    <Text style={{color: '#e47911', fontWeight: 'bold'}}>
+                                    ${totalPrice.toFixed(2)}
+                                    </Text>
+                                    </Text>
+                                    <Button
+                                    text="Comprar"
+                                    onPress={onCheckout}
+                                    containerStyles={{
+                                        backgroundColor: '#022180',
+                                        borderColor: '#c7b702',
+                                    }}
+                                    />
+                                </View>
+                            </View>    
+                            
+                        </View>
+                        </View>
+                              
+                        )
+                    }
+                />
+        
 
-            <View style={styles.subcontainer2}>
-                <Text style={styles.textcurso}>Orden en curso</Text>
-                <View style={styles.subcontainer2_1}>
-                <Image 
-                    source={{uri:order.image}}
-                    style={styles.imageproducto}/>
-                    <View style={styles.subcontainer2_1_1}>
-                    <Text style={styles.prueba}>{order.title}</Text>  
-                    <Text style={styles.fecha}>{order.fecha}</Text>  
-                    <Text style={styles.proceso}>{order.status}</Text>
-                    <TouchableOpacity onPress={onPressResultados}>
-                        <Text style={styles.resultados}>Ver resultados</Text>
-                    </TouchableOpacity>
-                    </View>
-
-            </View>
-                
-                </View>
-
-            <View style={styles.subcontainer3}> 
-                    <View style={styles.subcontainer4}>
-                        <TouchableOpacity onPress={onPressLogOut} style={styles.button}>
-                            <Text style={styles.textButton}>Cancelar pedido</Text>
-                        </TouchableOpacity>
-                    </View> 
-                </View>          
-
-        </SafeAreaView>
+        </View>
     )
 }
 

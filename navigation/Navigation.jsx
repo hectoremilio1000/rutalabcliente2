@@ -14,13 +14,13 @@ export default function Navigation() {
     );
   }
 
-  const Stack = createStackNavigator();
+  const Route = createStackNavigator();
 
   function RootNavigator() {
     return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Root" component={BottomTabNavigator} />
-        <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-      </Stack.Navigator>
+      <Route.Navigator screenOptions={{ headerShown: false }}>
+        <Route.Screen name="Root" component={BottomTabNavigator} />
+        <Route.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      </Route.Navigator>
     );
   }

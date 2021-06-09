@@ -8,11 +8,13 @@ import Colors from '../constants/Colors';
 import HomeScreen from '../screens/homescreen/HomeScreen'
 import HomeScreen2 from '../screens/homescreen2/HomeScreen2'
 import ProductScreen from '../screens/ProductScreen/ProductScreen'
-import ShoppingScreen from '../screens/shoppingscreen/ShoppingScreen'
-import OrdenesScreen from '../screens/ordenesScreen/OrdenesScreen'
+import OrdenesScreen from '../screens/OrdenesScreen/OrdenesScreen'
 import HelpScreen from '../screens/helpScreen/HelpScreen';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
-import DestinationSearchScreen from '../screens/destinationScreen/DestinationScreen'
+import DestinationSearchScreen from '../screens/DestinationScreen/DestinationScreen'
+import HomeStack from './HomeStack';
+import OrdenStack from './OrdenStack';
+import DestinationSearch from '../components/DestinationSearch/DestinationSearch';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,28 +35,22 @@ export default function BottomTabNavigator() {
       >
       <Tab.Screen
         name="Home"
-        component={HomeNavigator}
+        component={HomeStack}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="md-home" color={color}/>,
         }}
       />
       <Tab.Screen
-        name="Compras"
-        component={ProductScreen}
+        name="Orden"
+        component={OrdenStack}
         options={{
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shopping-outline" size={30} color={color} />
         }}
       />
-      <Tab.Screen
-        name="Ordenes"
-        component={OrdenesScreen}
-        options={{
-          tabBarIcon: ({ color }) => <FontAwesome name="list-alt" size={30} color={color} />,
-        }}
-      />
+      
       <Tab.Screen
         name="Help"
-        component={HelpScreen}
+        component={DestinationSearchScreen}
         options={{
           tabBarIcon: ({ color }) => <MaterialIcons name="support-agent" size={30} color={color} />,
         }}

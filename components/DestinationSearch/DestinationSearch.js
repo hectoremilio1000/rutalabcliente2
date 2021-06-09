@@ -5,17 +5,8 @@ import { Constants } from 'expo';
 
 import styles from './styles'
 
-const homePlace = {
-    description: 'Home',
-    geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
-  };
-  const workPlace = {
-    description: 'Work',
-    geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
-  };
 
-
-const DestinationSearchScreen = ({navigation})=>{
+const DestinationSearch = ({navigation})=>{
     const [originPlace, setOriginPlace] = useState(null)
     const [ubicacion, setUbicacion] = useState(null)
 
@@ -27,10 +18,13 @@ const DestinationSearchScreen = ({navigation})=>{
     }, [originPlace,ubicacion])
 
     return(
-        <SafeAreaView>
+        <View>
+            <View style={styles.ubicacion_container}>
+                <Text style={styles.textUbicacionActual}>{ubicacion}</Text>
+            </View>
             <View style={styles.autcomplete}>
+
             <GooglePlacesAutocomplete
-            
                 placeholder='Buscar tu ubicación'
                 onPress={(data, details = null) => {
                     setOriginPlace({data,details});
@@ -59,18 +53,8 @@ const DestinationSearchScreen = ({navigation})=>{
                 
             />
             </View> 
-            <View>
-                <View style={styles.ubicacion_container}>
-                    <View style={styles.ubicacion_actual}>
-                    <Text style={styles.textRecurrente}>Ubicación actual</Text>
-                    <Text style={styles.textUbicacionActual}>{ubicacion}</Text>
-                    </View>
-                </View>
-
-                
-            </View>
-        </SafeAreaView>
+        </View>
     )
 }
 
-export default DestinationSearchScreen
+export default DestinationSearch
