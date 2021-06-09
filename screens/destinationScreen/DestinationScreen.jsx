@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {View, TextInput,SafeAreaView, Text} from 'react-native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Constants } from 'expo';
+import Button from '../../components/Button/Button'
 
 import styles from './styles'
 
@@ -26,9 +27,24 @@ const DestinationSearchScreen = ({navigation})=>{
         }
     }, [originPlace,ubicacion])
 
+    const onCheckout= ()=>{
+        navigation.navigate('Destination')
+    }
+
     return(
-        <SafeAreaView>
-            <View style={styles.autcomplete}>
+        <View>
+            <View style={{alignSelf:'center'}}>
+                <Button
+                text="Iniciar"
+                onPress={onCheckout}
+                containerStyles={{
+                    backgroundColor: '#022180',
+                    borderColor: '#c7b702',
+                }}
+                />
+            </View>  
+            
+            <View style={styles.autOcomplete}>
             <GooglePlacesAutocomplete
             
                 placeholder='Buscar tu ubicación'
@@ -41,13 +57,13 @@ const DestinationSearchScreen = ({navigation})=>{
                     TextInput:styles.textInput,
                     container:{
                         position:'absolute',
-                        top: 50,
+                        top: 20,
                         left:10,
                         right:10,
                     },
                     listView:{
                         position:'absolute',
-                        top:200,
+                        top:250,
                     }
                 }}
                 fetchDetails
@@ -62,14 +78,15 @@ const DestinationSearchScreen = ({navigation})=>{
             <View>
                 <View style={styles.ubicacion_container}>
                     <View style={styles.ubicacion_actual}>
+                    <Text style={styles.textRecurrente}>Ubicación RUTALAB</Text>
+                    <Text style={styles.textUbicacionActual1}>Niños Héroes 710, 
+                    Santa María del Marquesado, Niños Heroes, Oax.</Text>
                     <Text style={styles.textRecurrente}>Ubicación actual</Text>
-                    <Text style={styles.textUbicacionActual}>{ubicacion}</Text>
+                    <Text style={styles.textUbicacionActual2}>{ubicacion}</Text>
                     </View>
                 </View>
-
-                
             </View>
-        </SafeAreaView>
+        </View>
     )
 }
 

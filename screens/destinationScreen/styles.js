@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 import { Constants } from 'expo';
 
 const styles = StyleSheet.create({
-    autcomplete:{
-    marginBottom:100,
+    autOcomplete:{
+    marginBottom:60,
     backgroundColor:'#eee',
     height:'0%'
     },
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     ubicacion_container:{
         flexDirection:'row',
         justifyContent:'space-between',
-        paddingBottom:20,
         borderBottomWidth:1,
         borderBottomColor:'#969696',
         marginHorizontal:20,
@@ -49,9 +48,13 @@ const styles = StyleSheet.create({
         fontSize:15,
     },
 
-    textUbicacionActual:{
-        paddingTop:10,
+    textUbicacionActual1:{
+        paddingBottom:10,
     },
+    textUbicacionActual2:{
+        paddingBottom:0,
+    },
+
     containerNuevaDireccion:{
         marginHorizontal:20,
         marginTop:20,

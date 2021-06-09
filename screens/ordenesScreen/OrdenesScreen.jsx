@@ -19,11 +19,12 @@ const navigation = useNavigation();
       );
 
     const onCheckout= ()=>{
-        navigation.navigate('CreandoOrden')
+        navigation.navigate('Destination')
     }
 
     return(
         <View style={styles.page}>
+            
             <FlatList
                 data={orders}
                 renderItem={({item})=><CartServiceItem cartItem={item}/>}
